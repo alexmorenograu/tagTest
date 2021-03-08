@@ -12,6 +12,6 @@ const encryptPassword = async(password) => {
         };
         let buffer = Buffer.from(password);
         return crypto.publicEncrypt(externKey, buffer).toString("base64");
-    };
+};
 
 exports.encryptPassword = encryptPassword;
