@@ -7,15 +7,8 @@ const port = 9999;
 
 app.get('/', async(req, res) => {
     (async() => {
-        const { body } = await got.post('http://app.etiquetaselectronicas.com:9999/user/login', {
-            json: {
-                account: config.user,
-                loginType: 3,
-                password: await encrypt.encryptPassword(config.password)
-            },
-            responseType: 'json'
-        });
-        let key = body.data.token;
+        const info = await config.info
+        let key = info.data.token;
 
         (async() => {
             const { body } = await got.delete('http://app.etiquetaselectronicas.com:9999/item/batchDeleteItem', {
