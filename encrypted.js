@@ -5,9 +5,13 @@ const config = require('./config');
 const encryptPassword = async(password) => {
         const { body } = await got.get('http://app.etiquetaselectronicas.com:9999/user/getErpPublicKey', {
         });
-        let publicKey=`-----BEGIN PUBLIC KEY-----\n${JSON.parse(body).data}\n-----END PUBLIC KEY-----`;
+        const publicKey=`-----BEGIN PUBLIC KEY-----\n${JSON.parse(body).data}\n-----END PUBLIC KEY-----`;
+        const externKey = { 
+            key: publicKey,
+            padding: crypto.constants.RSA_PKCS1_PADDING 
+        };
         let buffer = Buffer.from(password);
-        return crypto.publicEncrypt({ key: publicKey, padding: crypto.constants.RSA_PKCS1_PADDING }, buffer).toString("base64");
-    };
+        return crypto.publicEncrypt(externKey, buffer).toString("base64");
+};
 
 exports.encryptPassword = encryptPassword;
