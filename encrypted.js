@@ -15,3 +15,5 @@ const encryptPassword = async(password) => {
 };
 
 exports.encryptPassword = encryptPassword;
+
+/////////LINIA TEST
