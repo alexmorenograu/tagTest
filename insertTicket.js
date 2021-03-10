@@ -1,6 +1,50 @@
+const config = require('./config');
+const got = require('got');
 
+var barcode = "A0A3B820690F";
+var shelving = "ABC";
+var collectionFk = '254';
 
-function ticketCollection(collectionFk){
+var consultaSql1 = [
+    {
+        id: 1025963,
+        ticketFk: 2516988,
+        level: 1,
+        wagon: 0,
+
+    },
+    {
+        id: 1025964,
+        ticketFk: 2542131,
+        level: 2,
+        wagon: 0
+    },
+    {
+        id: 1025965,
+        ticketFk: 2542131,
+        level: 3,
+        wagon: 0
+    }
+]
+var consultaSql2 = [
+    {
+        id: 1025963,
+        nickname: 'FLORA&CO',
+        agencyModeFk: 'MRW'//Seria un numero
+    },
+    {
+        id: 1025964,
+        nickname: 'MORRIS',
+        agencyModeFk: 'MRW'//Seria un numero
+    },
+    {
+        id: 1025965,
+        nickname: 'MORRIS2',
+        agencyModeFk: 'MRW'//Seria un numero
+    }
+]
+
+function ticketCollection(){//parametro collectionFk
     /// CONSULTA SQL PER A TINDRE ELS DIFERENTS ticketsColletion DE UN colletionFK (consiltaSql1) ///
     /// CONSULTA SQL PER A CADA ticket DE CADA ticketCollection (consiltaSql2) ///
     (async() => {
@@ -19,12 +63,11 @@ function ticketCollection(collectionFk){
                             {
                                 attrCategory: "verdnatura",
                                 attrName: "conTicket",
-                                barCode: shelving + level,
+                                barCode: shelving + consultaSql1[i].level,
                                 itemTitle: "Etiqueta Con ticket",
-                                productCode: shelving + level,
-                                custFeature1: "Juan",
-                                custFeature2: "MRW",
-                                custFeature3: "123456789"
+                                productCode: consultaSql1[i].ticketFk,
+                                custFeature1: consultaSql2[i].nickname,
+                                custFeature2: consultaSql2[i].agencyModeFk
                             }
                         ]
                     },
@@ -39,30 +82,4 @@ function ticketCollection(collectionFk){
     })();
 }
 
-var collectionFk = '254';
-var consultaSql1 = {
-    uno: {
-        id: 1025963,
-        ticketFk: 2516988,
-        level: 1,
-        wagon: 0,
-    },
-    dos: {
-        id: 1025964,
-        ticketFk: 2542131,
-        level: 2,
-        wagon: 0,
-    }
-}
-var consultaSql2 = {
-    uno: {
-        id: 1025963,
-        nickname: 'FLORA&CO',
-        agencyModeFk: 'MRW'//Seria un numero
-    },
-    dos: {
-        id: 1025964,
-        nickname: 'MORRIS',
-        agencyModeFk: 'MRW'//Seria un numero
-    }
-}
+ticketCollection();

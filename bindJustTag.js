@@ -55,7 +55,7 @@ function smartTag(barcode, shelving, level){
 }
 
 var barcode = "A0A3B820690F";
-var shelving = "ABC";
+var shelving = "BCD";
 var level = "1";
 
 smartTag(barcode, shelving, level);
