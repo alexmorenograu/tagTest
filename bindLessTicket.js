@@ -19,9 +19,6 @@ function smartTag(barcode, shelving, level){
                                     barCode: shelving + level,
                                     itemTitle: "Etiqueta sin ticket",
                                     productCode: shelving + level,
-                                    custFeature1: "Juan",
-                                    custFeature2: "MRW",
-                                    custFeature3: "123456789"
                                 }
                             ]
                         },
