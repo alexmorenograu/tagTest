@@ -1,10 +1,3 @@
-var barcode = "A0A3B8207222";
-var shelving = "ABC";
-var level = "2";
-
-
-
-
 function smartTag(barcode, shelving, level){
     const got = require('got');
     const config = require('./config');
@@ -25,7 +18,10 @@ function smartTag(barcode, shelving, level){
                                     attrName: "sinTicket",
                                     barCode: shelving + level,
                                     itemTitle: "Etiqueta sin ticket",
-                                    productCode: shelving + level
+                                    productCode: shelving + level,
+                                    custFeature1: "Juan",
+                                    custFeature2: "MRW",
+                                    custFeature3: "123456789"
                                 }
                             ]
                         },
@@ -60,5 +56,9 @@ function smartTag(barcode, shelving, level){
         })();
     })();
 }
+
+var barcode = "A0A3B820690F";
+var shelving = "ABC";
+var level = "1";
 
 smartTag(barcode, shelving, level);

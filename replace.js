@@ -1,10 +1,3 @@
-var barcode = "A0A3B8207222";
-var shelving = "ABC";
-var level = "2";
-
-
-
-
 function replaceTag(barcode, shelving, level){
     const got = require('got');
     const config = require('./config');
@@ -28,5 +21,9 @@ function replaceTag(barcode, shelving, level){
             console.log(body)
     })();
 }
+
+var barcode = "A0A3B8207222";
+var shelving = "ABC";
+var level = "2";
 
 replaceTag(barcode, shelving, level);
