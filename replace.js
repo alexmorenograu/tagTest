@@ -27,5 +27,3 @@ var shelving = "ABC";
 var level = "2";
 
 replaceTag(barcode, shelving, level);
-
-//prueba
