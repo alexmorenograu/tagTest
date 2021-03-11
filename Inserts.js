@@ -79,6 +79,7 @@ function filter(toFilter, type){
     }
     return exp.test(toFilter)
 }
+
 exports.insertTicket = insertTicket;
 exports.insertShelving = insertShelving;
 exports.filter = filter;
