@@ -1,5 +1,5 @@
 
-const insert = require('./Inserts');
+const insert = require('./inserts');
 
 var barcode = "A0A3B820690F";
 var shelving = "ABC";///introducida por el usuario

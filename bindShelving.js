@@ -1,4 +1,4 @@
-const insert = require('./Inserts');
+const insert = require('./inserts');
 
 
 function smartTag(barcode, shelving, level){
